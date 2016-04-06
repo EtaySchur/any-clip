@@ -10,7 +10,7 @@
             commentsService = {
                 addVideoComment: function( comment ) {
                     // $http returns a promise, which has a then function, which also returns a promise
-                    promise = $http.post(appApi.COMMENT , rate).then(function (response) {
+                    promise = $http.post(appApi.COMMENT , comment).then(function (response) {
                         // The then function here is an opportunity to modify the response
                         // The return value gets picked up by the then in the controller.
                         return response.data;

@@ -21,7 +21,7 @@
         </div>
         <div class="row video-info-row">
             <div class="col-md-3">
-
+                <span ng-if="VideosCtrl.rate"> Rating :  <span style="font-weight: bold"> {{VideosCtrl.rate}} </span> </span>
             </div>
             <div class="col-md-9">
                 <div class="video-rating-wrapper">
@@ -55,15 +55,6 @@
 
               <img class="img-thumbnail" ng-src="{{video.thumbnailUrl}}">
               <p ng-bind="video.title"> </p>
-              <!--<video-->
-                      <!--id="vid{{$index}}"-->
-                      <!--class="video-js vjs-default-skin"-->
-                      <!--controls="false"-->
-                      <!--width="300" height="100"-->
-                      <!--thumbnails="true"-->
-                      <!--data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=Ca93bp-jpn8"}], "youtube": { "iv_load_policy": 1 } }'-->
-                      <!-->
-              <!--</video>-->
           </div>
         </div>
     </div>
