@@ -12,7 +12,7 @@ angular.module('anyclipDemoApp', [
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/videos'
             });
 
         $locationProvider.html5Mode(true);

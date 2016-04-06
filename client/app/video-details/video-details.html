@@ -1,1 +1,61 @@
-<div>This is the video-details view.</div>
+<div class="row">
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-xs-12">
+                <!--<vjs-video-container vjs-ratio="16:9">-->
+                <video style="width: 100%" vjs-video vjs-media="VideoDetialCtrl.mediaObj" class="video-js vjs-default-skin" controls preload="auto" poster="poster.jpg">
+
+                </video>
+                <!--</vjs-video-container>-->
+
+                <!--<video-->
+                <!--id="vid1"-->
+                <!--class="video-js vjs-default-skin"-->
+                <!--controls-->
+                <!--autoplay-->
+                <!--width="800"-->
+                <!--data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=Ca93bp-jpn8"}], "youtube": { "iv_load_policy": 1 } }'-->
+                <!-->
+                <!--</video>-->
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <div class="col-md-3">
+        <form>
+            <div class="form-group">
+                <label>Title</label>
+                <p  ng-bind="VideoDetialCtrl.video.title"></p>
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <p  ng-bind="VideoDetialCtrl.video.description"></p>
+            </div>
+            <div class="form-group">
+                <label>Thumbnail Image</label>
+                <img  class="img-thumbnail" ng-src="{{VideoDetialCtrl.video.thumbnailUrl}}">
+            </div>
+            <div class="form-group">
+                <label>Type</label>
+                <p> Movie </p>
+            </div>
+            <div class="form-group">
+                <label>Duration</label>
+                <p> 1h 55m</p>
+            </div>
+            <div class="form-group">
+                <label>Rating</label>
+                <p ng-bind="VideoDetialCtrl.avgVideoRating.toFixed(2)">  </p>
+            </div>
+            <div class="form-group">
+                <label>Added At</label>
+                <p ng-bind="VideoDetialCtrl.video.createdAt | date : 'short'"> </p>
+            </div>
+        </form>
+    </div>
+</div>
+

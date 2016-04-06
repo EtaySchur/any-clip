@@ -74,6 +74,26 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a single Rating from the DB
+export function video(req, res) {
+    var pipeline = [
+        { "$match": { "videoId": req.params.videoId } },
+        {
+            "$group": {
+                "_id": "$nid",
+                "rateAvg": { "$avg": "$rate" }
+            }
+        }
+    ]
+
+    Rating.aggregate(pipeline, function(err, result){
+        if(err) {
+            res.send(String(err));
+        }
+        res.send(result);
+    })
+}
+
 // Creates a new Rating in the DB
 export function create(req, res) {
   return Rating.create(req.body)

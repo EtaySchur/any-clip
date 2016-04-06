@@ -2,11 +2,12 @@
 (function(){
 
 class VideosComponent {
-  constructor(videosService , ratingService , commentsService ) {
+  constructor(videosService , ratingService , commentsService , $location ) {
             this.videos = [];
             this.videosService = videosService;
             this.ratingService = ratingService;
             this.commentsService = commentsService;
+            this.$location = $location;
 
   }
         $onInit() {
@@ -66,6 +67,10 @@ class VideosComponent {
                 poster: this.selectedVideo.thumbnailUrl
             }
 
+        }
+
+        navToSelectedVideo (){
+            this.$location.url('videos/' + this.selectedVideo._id);
         }
 
 

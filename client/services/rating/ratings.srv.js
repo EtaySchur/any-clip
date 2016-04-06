@@ -17,6 +17,12 @@
                     });
                     // Return the promise to the controller
                     return promise;
+                },
+                getVideoRating : function (videoId){
+                    promise = $http.get(appApi.RATING_BY_VIDEO + '/' + videoId).then(function (response) {
+                        return response.data;
+                    });
+                    return promise;
                 }
             };
             return ratingService;
