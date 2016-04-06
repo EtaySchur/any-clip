@@ -77,7 +77,6 @@ class VideosComponent {
         };
 
         videoSelected ( video){
-            console.log('Selecting Video !'  , video);
             this.selectedVideo = video;
             this.mediaObj = {
                 sources: [

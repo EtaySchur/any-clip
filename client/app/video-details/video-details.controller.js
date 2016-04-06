@@ -26,7 +26,6 @@
 
                 self.commentsService.getCommentsByVideo(self.videoId).then(function (result) {
                     self.comments = result;
-                    console.log("I have comments ? ",result);
                 }).catch(function (err) {
 
                 });
