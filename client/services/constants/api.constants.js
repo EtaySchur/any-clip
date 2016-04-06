@@ -8,10 +8,10 @@
     angular.module('anyclipDemoApp')
         .constant('appApi', {
             VIDEO : '/api/videos',
-            RATING : '/api/ratings',
-            COMMENT : '/api/comments',
+            COMMENTS_BY_VIDEO : 'api/comments/video',
             RATING_BY_VIDEO : 'api/ratings/video',
-            COMMENTS_BY_VIDEO : 'api/comments/video'
+            RATING : '/api/ratings',
+            COMMENT : '/api/comments'
         })
 
 })();

@@ -2,16 +2,18 @@
 (function(){
 
 class VideosComponent {
-  constructor(videosService , ratingService , commentsService , $location ) {
+  constructor(videosService , ratingService , commentsService , $location , notificationService) {
             this.videos = [];
             this.videosService = videosService;
             this.ratingService = ratingService;
             this.commentsService = commentsService;
             this.$location = $location;
+            this.notificationService = notificationService;
 
   }
         $onInit() {
             var self = this;
+
             this.videosService.getAllVideos().then(function(result){
                 self.videos = result;
 
@@ -26,6 +28,7 @@ class VideosComponent {
     }
 
         rateVideo( rate ){
+            var self = this;
             this.rate = rate;
             // Enhance Rate Data
             var rateEntity = {
@@ -34,13 +37,14 @@ class VideosComponent {
             };
 
             this.ratingService.addVideoRating(rateEntity).then(function(result){
+                self.notificationService.success('Your Rating has been saved  \n Thank You :)')
             }).catch(function(err){
-
+                self.notificationService.error('Oops .. \n Something Wrong happen \n Please try again later  \n Thank You :)')
             });
         };
 
         commentVideo( commentText ){
-            console.log("Commenting");
+            var self = this;
             // Enhance Comment Data
             var commentEntity = {
                 text : commentText,
@@ -48,9 +52,9 @@ class VideosComponent {
             };
 
             this.commentsService.addVideoComment(commentEntity).then(function(result){
-
+                self.notificationService.success('Your comment has been saved  \n Thank You :)')
             }).catch(function(err){
-
+                self.notificationService.error('Oops .. \n Something Wrong happen \n Please try again later  \n Thank You :)')
             });
         };
 
