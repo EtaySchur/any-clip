@@ -4,7 +4,8 @@
 angular.module('anyclipDemoApp.constants', [])
 
 .constant('appApi', {
-        GET_VIDEOS : '/api/videos'
+        GET_VIDEOS : '/api/videos',
+        RATING : '/api/ratings'
     })
 
 ;

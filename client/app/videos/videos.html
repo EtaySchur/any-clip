@@ -27,11 +27,7 @@
                 <div class="video-rating-wrapper">
                     <span style="margin-right: 15px"> Rate the video </span>
                     <div class="btn-group" role="group" aria-label="Rate This Video">
-                        <button  ng-click="VideosCtrl.rateVideo(1)" type="button" class="btn btn-default">1</button>
-                        <button  ng-click="VideosCtrl.rateVideo(2)" type="button" class="btn btn-default">2</button>
-                        <button  ng-click="VideosCtrl.rateVideo(3)" type="button" class="btn btn-default">3</button>
-                        <button  ng-click="VideosCtrl.rateVideo(4)" type="button" class="btn btn-default">4</button>
-                        <button  ng-click="VideosCtrl.rateVideo(5)" type="button" class="btn btn-default">5</button>
+                        <button  ng-class="{'btn-primary' : VideosCtrl.rate === i}" ng-repeat="i in [1, 2, 3, 4, 5]" ng-click="VideosCtrl.rateVideo(i)" type="button" class="btn btn-default">{{i}}</button>
                     </div>
                 </div>
             </div>
@@ -41,7 +37,7 @@
     </div>
     <div class="col-md-3">
         <div class="video-thumb-side-menu">
-          <div ng-repeat="video in VideosCtrl.videos" class="video-thumb">
+          <div ng-click="VideosCtrl.videoSelected(video)" ng-repeat="video in VideosCtrl.videos" class="video-thumb">
 
               <img class="img-thumbnail" ng-src="{{video.thumbnailUrl}}">
               <p ng-bind="video.title"> </p>

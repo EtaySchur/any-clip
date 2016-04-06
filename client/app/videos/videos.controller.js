@@ -2,9 +2,10 @@
 (function(){
 
 class VideosComponent {
-  constructor(videosService) {
+  constructor(videosService , ratingService , $scope ) {
             this.videos = [];
             this.videosService = videosService;
+            this.ratingService = ratingService;
 
   }
         $onInit() {
@@ -13,16 +14,8 @@ class VideosComponent {
                 console.log("Get VIDEOS API RESULT ",result);
                 self.videos = result;
                 if(self.videos.length > 0){
-                    self.selectedVideo = self.videos[0];
-                    self.mediaObj = {
-                        sources: [
-                            {
-                                src: self.selectedVideo.videoLink,
-                                type: 'video/mp4'
-                            }
-                        ],
-                        poster: self.selectedVideo.thumbnailUrl
-                    }
+                    self.videoSelected(self.videos[0]);
+
                 }
             }).catch(function(err){
 
@@ -30,11 +23,40 @@ class VideosComponent {
     }
 
         rateVideo( rate ){
-            console.log("My Rate ",rate);
+            this.rate = rate;
+            // Enhance Rate Data
+            var rateEntity = {
+                rate : rate,
+                videoId : this.selectedVideo._id
+            };
+
+            this.ratingService.addRating(rateEntity).then(function(result){
+                console.log("Add Rate Success");
+            }).catch(function(err){
+
+            });
+        };
+
+        videoSelected ( video){
+            console.log('Selecting Video !');
+            this.selectedVideo = video;
+            this.mediaObj = {
+                sources: [
+                    {
+                        src: this.selectedVideo.videoLink,
+                        type: 'video/mp4'
+                    }
+                ],
+                poster: this.selectedVideo.thumbnailUrl
+            }
+
         }
 
 
-}
+
+
+
+    }
 
 angular.module('anyclipDemoApp')
   .component('videos', {
