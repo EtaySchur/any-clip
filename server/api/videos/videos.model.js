@@ -7,6 +7,7 @@ var VideosSchema = new mongoose.Schema({
     type: {type: String, required: true, unique: false},
     description: {type: String, required: true, unique: false},
     videoLink: {type: String, required: true, unique: false},
+    thumbnailUrl : {type: String, required: true, unique: false} ,
     createdAt: Date
 });
 
