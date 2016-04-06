@@ -14,18 +14,33 @@ class VideosComponent {
         $onInit() {
             var self = this;
 
+            function compare(a,b) {
+                if (a.avgRating < b.avgRating)
+                    return 1;
+                else if (a.avgRating > b.avgRating)
+                    return -1;
+                else
+                    return 0;
+            }
+
             this.videosService.getAllVideos().then(function(result){
                 self.videos = result;
-
+                var counter = 0;
                 self.videos.forEach(function(video){
                     self.ratingService.getVideoRating(video._id).then(function( avgRate ){
-                        video.avgRating = avgRate;
+                        video.avgRating = avgRate[0].rateAvg;
+                        counter++;
+                        if(counter === self.videos.length){
+                            self.videoSelected( self.videos.sort(compare)[0]);
+                            console.log("This is my selected Video ",self.selectedVideo);
+                        };
                     })
                 });
-            }).catch(function(err){
-
-            });
+            })
     }
+
+
+
 
         rateVideo( rate ){
             var self = this;
@@ -59,7 +74,7 @@ class VideosComponent {
         };
 
         videoSelected ( video){
-            console.log('Selecting Video !');
+            console.log('Selecting Video !'  , video);
             this.selectedVideo = video;
             this.mediaObj = {
                 sources: [
@@ -72,6 +87,8 @@ class VideosComponent {
             }
 
         }
+
+
 
         navToSelectedVideo (){
             this.$location.url('videos/' + this.selectedVideo._id);
