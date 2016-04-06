@@ -31,8 +31,8 @@ class VideosComponent {
                         video.avgRating = avgRate[0].rateAvg;
                         counter++;
                         if(counter === self.videos.length){
-                            self.videoSelected( self.videos.sort(compare)[0]);
-                            console.log("This is my selected Video ",self.selectedVideo);
+                            self.videos = self.videos.sort(compare);
+                            self.videoSelected( self.videos[0]);
                         };
                     })
                 });
@@ -53,6 +53,9 @@ class VideosComponent {
 
             this.ratingService.addVideoRating(rateEntity).then(function(result){
                 self.notificationService.success('Your Rating has been saved  \n Thank You :)')
+                self.ratingService.getVideoRating(self.selectedVideo._id).then(function( avgRate ){
+                    self.selectedVideo.avgRating = avgRate[0].rateAvg;
+                })
             }).catch(function(err){
                 self.notificationService.error('Oops .. \n Something Wrong happen \n Please try again later  \n Thank You :)')
             });

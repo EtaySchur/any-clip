@@ -12,7 +12,7 @@
         </div>
         <div class="row video-info-row">
             <div class="col-md-3">
-                <span ng-if="VideosCtrl.rate"> Rating :  <span style="font-weight: bold"> {{VideosCtrl.rate}} </span> </span>
+                <span > Rating :  <span style="font-weight: bold"> {{VideosCtrl.selectedVideo.avgRating.toFixed(2)}} </span> </span>
             </div>
             <div class="col-md-9">
                 <div class="video-rating-wrapper">
@@ -42,7 +42,7 @@
     </div>
     <div class="col-md-3">
         <div class="video-thumb-side-menu">
-          <div  ng-init="VideosCtrl.setFirst(video , $first)" ng-click="VideosCtrl.videoSelected(video)" ng-repeat="video in VideosCtrl.videos | orderBy : 'avgRating' : true" class="video-thumb">
+          <div   ng-click="VideosCtrl.videoSelected(video)" ng-repeat="video in VideosCtrl.videos | orderBy : 'avgRating' : true" class="video-thumb">
               <img class="img-thumbnail" ng-src="{{video.thumbnailUrl}}">
               <p ng-bind="video.title"> </p>
           </div>
