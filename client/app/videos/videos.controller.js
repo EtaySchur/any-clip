@@ -12,7 +12,7 @@ class VideosComponent {
   }
         $onInit() {
             var self = this;
-            this.videosService.getVideos().then(function(result){
+            this.videosService.getAllVideos().then(function(result){
                 console.log("Get VIDEOS API RESULT ",result);
                 self.videos = result;
                 if(self.videos.length > 0){
@@ -32,7 +32,7 @@ class VideosComponent {
                 videoId : this.selectedVideo._id
             };
 
-            this.ratingService.addRating(rateEntity).then(function(result){
+            this.ratingService.addVideoRating(rateEntity).then(function(result){
                 console.log("Add Rate Success");
             }).catch(function(err){
 
@@ -47,7 +47,7 @@ class VideosComponent {
                 videoId : this.selectedVideo._id
             };
 
-            this.commentsService.addComment(commentEntity).then(function(result){
+            this.commentsService.addVideoComment(commentEntity).then(function(result){
 
             }).catch(function(err){
 

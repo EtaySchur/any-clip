@@ -17,7 +17,7 @@
         $onInit()
         {
             var self = this;
-            this.videosService.getVideo(this.videoId).then(function (result) {
+            this.videosService.getVideoData(this.videoId).then(function (result) {
                 self.ratingService.getVideoRating(self.videoId).then(function (result) {
                     self.avgVideoRating = result[0].rateAvg;
                 }).catch(function (err) {

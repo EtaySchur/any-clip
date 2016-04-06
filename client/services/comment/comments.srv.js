@@ -8,7 +8,7 @@
         .service('commentsService', function ( $http , appApi ) {
             var promise = null, commentsService;
             commentsService = {
-                addComment: function( comment ) {
+                addVideoComment: function( comment ) {
                     // $http returns a promise, which has a then function, which also returns a promise
                     promise = $http.post(appApi.COMMENT , rate).then(function (response) {
                         // The then function here is an opportunity to modify the response

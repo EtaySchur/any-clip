@@ -7,7 +7,7 @@
         .service('videosService', function ( $http , appApi ) {
             var promise = null, videosService;
             videosService = {
-                getVideos: function() {
+                getAllVideos: function() {
                     // $http returns a promise, which has a then function, which also returns a promise
                     promise = $http.get(appApi.VIDEO).then(function (response) {
                         // The then function here is an opportunity to modify the response
@@ -17,7 +17,7 @@
                     // Return the promise to the controller
                     return promise;
                 },
-                getVideo : function ( videoId) {
+                getVideoData : function ( videoId) {
                     // $http returns a promise, which has a then function, which also returns a promise
                     promise = $http.get(appApi.VIDEO + '/' + videoId).then(function (response) {
                         // The then function here is an opportunity to modify the response
