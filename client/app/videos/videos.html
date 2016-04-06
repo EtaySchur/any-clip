@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-md-9">
+        <!--<vjs-video-container vjs-ratio="16:9">-->
+            <!--<video class="video-js vjs-default-skin" controls preload="auto" poster="poster.jpg">-->
+                <!--<source src="https://www.youtube.com/watch?v=Ca93bp-jpn8" type="video/youtube">-->
+            <!--</video>-->
+        <!--</vjs-video-container>-->
+        <div class="row">
+            <div class="col-xs-12">
+                <video
+                        id="vid1"
+                        class="video-js vjs-default-skin"
+                        controls
+                        autoplay
+                        width="800"
+                        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=Ca93bp-jpn8"}], "youtube": { "iv_load_policy": 1 } }'
+                        >
+                </video>
+            </div>
+        </div>
+        <div class="row video-info-row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-9">
+                <div class="video-rating-wrapper">
+                    <span style="margin-right: 15px"> Rate the video </span>
+                    <div class="btn-group" role="group" aria-label="Rate This Video">
+                        <button  ng-click="VideosCtrl.rateVideo(1)" type="button" class="btn btn-default">1</button>
+                        <button  ng-click="VideosCtrl.rateVideo(2)" type="button" class="btn btn-default">2</button>
+                        <button  ng-click="VideosCtrl.rateVideo(3)" type="button" class="btn btn-default">3</button>
+                        <button  ng-click="VideosCtrl.rateVideo(4)" type="button" class="btn btn-default">4</button>
+                        <button  ng-click="VideosCtrl.rateVideo(5)" type="button" class="btn btn-default">5</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-3">
+        <div class="video-thumb-side-menu">
+          <div ng-repeat="video in VideosCtrl.videos" class="video-thumb">
+
+              <img class="img-thumbnail" ng-src="http://img.youtube.com/vi/94I4A1brhAE/0.jpg">
+              <p ng-bind="video.title"> </p>
+              <!--<video-->
+                      <!--id="vid{{$index}}"-->
+                      <!--class="video-js vjs-default-skin"-->
+                      <!--controls="false"-->
+                      <!--width="300" height="100"-->
+                      <!--thumbnails="true"-->
+                      <!--data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=Ca93bp-jpn8"}], "youtube": { "iv_load_policy": 1 } }'-->
+                      <!-->
+              <!--</video>-->
+          </div>
+        </div>
+    </div>
+</div>
+
+
