@@ -74,7 +74,7 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
-// Gets a single Rating from the DB
+// Gets a All Ratings Per Video and Average the Result from the DB
 export function video(req, res) {
     var pipeline = [
         { "$match": { "videoId": req.params.videoId } },
@@ -92,6 +92,7 @@ export function video(req, res) {
         }
         res.send(result);
     })
+
 }
 
 // Creates a new Rating in the DB

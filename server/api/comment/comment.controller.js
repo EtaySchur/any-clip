@@ -74,6 +74,15 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+// Gets a All Comments Per Video from the DB
+export function video(req, res) {
+    return Comment.find( {'videoId' : req.params.videoId}).exec()
+        .then(handleEntityNotFound(res))
+        .then(respondWithResult(res))
+        .catch(handleError(res));
+}
+
+
 // Creates a new Comment in the DB
 export function create(req, res) {
   return Comment.create(req.body)

@@ -7,7 +7,8 @@ angular.module('anyclipDemoApp.constants', [])
         VIDEO : '/api/videos',
         RATING : '/api/ratings',
         COMMENT : '/api/comments',
-        RATING_BY_VIDEO : 'api/ratings/video'
+        RATING_BY_VIDEO : 'api/ratings/video',
+        COMMENTS_BY_VIDEO : 'api/comments/video'
     })
 
 ;
