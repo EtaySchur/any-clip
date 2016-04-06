@@ -8,5 +8,26 @@
   .video-rating-wrapper{
     float: right;
   }
+
 }
 
+.comments-row{
+  margin-top: 30px;
+  .comments-textarea-wrapper{
+    padding-right: 0 !important;
+    textarea{
+      width: 100% !important;
+    }
+  }
+
+}
+
+.actions-row{
+  margin-top: 30px;
+  #browse-video-cta{
+    float: left;
+  }
+  #save-comment-cta{
+    float: right;
+  }
+}
