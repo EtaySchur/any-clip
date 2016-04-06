@@ -42,8 +42,7 @@
     </div>
     <div class="col-md-3">
         <div class="video-thumb-side-menu">
-          <div ng-click="VideosCtrl.videoSelected(video)" ng-repeat="video in VideosCtrl.videos" class="video-thumb">
-
+          <div ng-init="($first) ? VideosCtrl.videoSelected(video) : ''" ng-click="VideosCtrl.videoSelected(video)" ng-repeat="video in VideosCtrl.videos | orderBy : 'avgRating' : true" class="video-thumb">
               <img class="img-thumbnail" ng-src="{{video.thumbnailUrl}}">
               <p ng-bind="video.title"> </p>
           </div>

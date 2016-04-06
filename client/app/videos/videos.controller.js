@@ -13,12 +13,13 @@ class VideosComponent {
         $onInit() {
             var self = this;
             this.videosService.getAllVideos().then(function(result){
-                console.log("Get VIDEOS API RESULT ",result);
                 self.videos = result;
-                if(self.videos.length > 0){
-                    self.videoSelected(self.videos[0]);
 
-                }
+                self.videos.forEach(function(video){
+                    self.ratingService.getVideoRating(video._id).then(function( avgRate ){
+                        video.avgRating = avgRate;
+                    })
+                });
             }).catch(function(err){
 
             });
@@ -33,7 +34,6 @@ class VideosComponent {
             };
 
             this.ratingService.addVideoRating(rateEntity).then(function(result){
-                console.log("Add Rate Success");
             }).catch(function(err){
 
             });

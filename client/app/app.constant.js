@@ -3,13 +3,7 @@
 
 angular.module('anyclipDemoApp.constants', [])
 
-.constant('appApi', {
-        VIDEO : '/api/videos',
-        RATING : '/api/ratings',
-        COMMENT : '/api/comments',
-        RATING_BY_VIDEO : 'api/ratings/video',
-        COMMENTS_BY_VIDEO : 'api/comments/video'
-    })
+.constant('appConfig', {userRoles:['guest','user','admin']})
 
 ;
 })(angular);

@@ -7,7 +7,8 @@ angular.module('anyclipDemoApp', [
     'ngSanitize',
     'ngRoute',
     'ui.bootstrap',
-    'vjs.video'
+    'vjs.video',
+    'jlareau.pnotify'
 ])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
