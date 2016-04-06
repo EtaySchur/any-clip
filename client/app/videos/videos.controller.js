@@ -2,10 +2,11 @@
 (function(){
 
 class VideosComponent {
-  constructor(videosService , ratingService , $scope ) {
+  constructor(videosService , ratingService , commentsService ) {
             this.videos = [];
             this.videosService = videosService;
             this.ratingService = ratingService;
+            this.commentsService = commentsService;
 
   }
         $onInit() {
@@ -32,6 +33,21 @@ class VideosComponent {
 
             this.ratingService.addRating(rateEntity).then(function(result){
                 console.log("Add Rate Success");
+            }).catch(function(err){
+
+            });
+        };
+
+        commentVideo( commentText ){
+            console.log("Commenting");
+            // Enhance Comment Data
+            var commentEntity = {
+                text : commentText,
+                videoId : this.selectedVideo._id
+            };
+
+            this.commentsService.addComment(commentEntity).then(function(result){
+
             }).catch(function(err){
 
             });
