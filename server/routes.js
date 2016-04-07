@@ -12,7 +12,6 @@ export default function(app) {
   app.use('/api/comments', require('./api/comment'));
   app.use('/api/ratings', require('./api/rating'));
   app.use('/api/videos', require('./api/videos'));
-  app.use('/api/things', require('./api/thing'));
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);
