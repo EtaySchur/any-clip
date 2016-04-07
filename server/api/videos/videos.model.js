@@ -8,7 +8,7 @@ var VideosSchema = new mongoose.Schema({
     description: {type: String, required: true, unique: false},
     videoLink: {type: String, required: true, unique: false},
     thumbnailUrl : {type: String, required: true, unique: false} ,
-    createdAt: Date
+    createdAt:  {type: Date, default: Date.now}
 });
 
 export default
