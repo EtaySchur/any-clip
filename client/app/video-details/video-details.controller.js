@@ -17,32 +17,36 @@
         $onInit()
         {
             var self = this;
-            this.videosService.getVideoData(this.videoId).then(function (result) {
-                self.ratingService.getVideoRating(self.videoId).then(function (result) {
-                    self.avgVideoRating = result[0].rateAvg;
-                }).catch(function (err) {
 
-                });
+            self.video = this.videosService.getVideoData(this.videoId);
 
-                self.commentsService.getCommentsByVideo(self.videoId).then(function (result) {
-                    self.comments = result;
-                }).catch(function (err) {
-
-                });
-                self.video = result;
-                self.mediaObj = {
-                    sources: [
-                        {
-                            src: self.video.videoLink,
-                            type: 'video/mp4'
-                        }
-                    ],
-                    poster: self.video.thumbnailUrl
-                }
-
+            self.ratingService.getVideoRating(self.videoId).then(function (result) {
+                self.avgVideoRating = result[0].rateAvg;
             }).catch(function (err) {
-                self.$location.url('/videos');
+
             });
+
+            self.commentsService.getCommentsByVideo(self.videoId).then(function (result) {
+                self.comments = result;
+            }).catch(function (err) {
+
+            });
+            self.mediaObj = {
+                sources: [
+                    {
+                        src: self.video.videoLink,
+                        type: 'video/mp4'
+                    }
+                ],
+                poster: self.video.thumbnailUrl
+            }
+
+            //this.videosService.getVideoData(this.videoId).then(function (result) {
+            //
+            //
+            //}).catch(function (err) {
+            //    self.$location.url('/videos');
+            //});
         }
     }
 
