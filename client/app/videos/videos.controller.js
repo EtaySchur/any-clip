@@ -23,20 +23,19 @@ class VideosComponent {
                     return 0;
             }
 
-            this.videosService.getAllVideos().then(function(result){
-                self.videos = result;
-                var counter = 0;
-                self.videos.forEach(function(video){
-                    self.ratingService.getVideoRating(video._id).then(function( avgRate ){
-                        video.avgRating = avgRate[0].rateAvg;
-                        counter++;
-                        if(counter === self.videos.length){
-                            self.videos = self.videos.sort(compare);
-                            self.videoSelected( self.videos[0]);
-                        };
-                    })
-                });
-            })
+            self.videos = this.videosService.getAllVideos();
+            var counter = 0;
+            self.videos.forEach(function(video){
+                self.ratingService.getVideoRating(video._id).then(function( avgRate ){
+                    video.avgRating = avgRate[0].rateAvg;
+                    counter++;
+                    if(counter === self.videos.length){
+                        self.videos = self.videos.sort(compare);
+                        self.videoSelected( self.videos[0]);
+                    };
+                })
+            });
+
     }
 
 

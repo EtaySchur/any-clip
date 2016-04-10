@@ -7,7 +7,7 @@ angular.module('anyclipDemoApp')
             getAllVideos: function() {
                 return [
                     {
-                        "_id" : ObjectId("5704cd288a0c366596518825"),
+                        "_id" : "5704cd288a0c366596518825",
                         "title" : "The Matrix",
                         "description" : "Really Nice Movie",
                         "createdAt" : "1.1.2016",
@@ -15,7 +15,7 @@ angular.module('anyclipDemoApp')
                         "thumbnailUrl" : "http://vjs.zencdn.net/v/oceans.png"
                     },
                     {
-                        "_id" : ObjectId("5704dd6d8a0c366596518826"),
+                        "_id" : "5704dd6d8a0c366596518826",
                         "title" : "Jungle - Live ! ",
                         "description" : "Best Show In Bonarro Festival !",
                         "createdAt" : "1.1.2016",
@@ -23,7 +23,7 @@ angular.module('anyclipDemoApp')
                         "thumbnailUrl" : "http://www.videogular.com/assets/images/videogular.png"
                     },
                     {
-                        "_id" : ObjectId("57055d5f8a0c366596518827"),
+                        "_id" : "57055d5f8a0c366596518827",
                         "videoLink" : "http://html5videoformatconverter.com/data/images/happyfit2.mp4",
                         "title" : "Sky Fall",
                         "description" : "Very Cool Movie",
